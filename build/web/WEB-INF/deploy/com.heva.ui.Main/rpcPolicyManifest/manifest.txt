@@ -1,4 +1,0 @@
-# Module com.heva.ui.Main
-# RPC service class, partial path of RPC policy file
-com.google.gwt.logging.shared.RemoteLoggingService, CE18CF7C7088FCD25ACC685CF4BAE60B.gwt.rpc
-com.heva.ui.client.GWTService, D9AFBC865A93744D99312A3B4DD2F98E.gwt.rpc

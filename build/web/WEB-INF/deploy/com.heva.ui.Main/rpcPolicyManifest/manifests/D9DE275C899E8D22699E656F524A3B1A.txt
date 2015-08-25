@@ -1,2 +1,0 @@
-serviceClass: com.heva.ui.client.GWTService
-path: D9AFBC865A93744D99312A3B4DD2F98E.gwt.rpc
