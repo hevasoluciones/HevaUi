@@ -23,5 +23,7 @@ public interface GWTServiceAsync {
     
     public void getVisitors(AsyncCallback<List<Visits>> callback);
     
-    public void getCampaigns(AsyncCallback<List<Campaign>> callback);
+    public void getCampaigns(AsyncCallback<List<Campaign>> callback);    
+    
+    public void signUp(String username, String email, String password, AsyncCallback<String> callback);
 }

@@ -14,6 +14,8 @@ import com.heva.ui.client.view.beacons.BeaconsView;
 import com.heva.ui.client.view.beacons.BeaconsViewImpl;
 import com.heva.ui.client.view.campaign.CampaignView;
 import com.heva.ui.client.view.campaign.CampaignViewImpl;
+import com.heva.ui.client.view.campaign.EditCampaignView;
+import com.heva.ui.client.view.campaign.EditCampaignViewImpl;
 import com.heva.ui.client.view.campaign.NewCampaignView;
 import com.heva.ui.client.view.campaign.NewCampaignViewImpl;
 import com.heva.ui.client.view.dashboard.DashBoardView;
@@ -36,6 +38,7 @@ public class ClientFactoryImpl implements ClientFactory {
     private static final BeaconsAnalyticsView beaconsAnalyticsView = new BeaconsAnalyticsViewImpl();    
     private static final CampaignView campaignView = new CampaignViewImpl();
     private static final NewCampaignView newCampaignView = new NewCampaignViewImpl();
+    private static final EditCampaignView editCampaignView = new EditCampaignViewImpl();
     
     public ClientFactoryImpl() {
     }
@@ -99,6 +102,11 @@ public class ClientFactoryImpl implements ClientFactory {
     @Override
     public NewCampaignView getNewCampaignView() {
         return newCampaignView;
+    }
+
+    @Override
+    public EditCampaignView getEditCampaignView() {
+        return editCampaignView;
     }
 
 }

@@ -125,19 +125,7 @@ Uncomment this for XHTML entities
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="no-border-y">
-                                                <tr>
-                                                    <!--
-                                                    <td>                                                        
-                                                    </td>
-                                                    -->
-                                                    <td></td>
-                                                    <td class="text-right color-success"></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="text-center">                                                        
-                                                    </td>
-                                                </tr>                                                
+                                            <tbody class="no-border-y">                                                                                            
                                             </tbody>
                                         </table>		
                                     </div>

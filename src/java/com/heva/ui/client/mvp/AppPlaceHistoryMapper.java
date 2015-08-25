@@ -8,6 +8,7 @@ import com.heva.ui.client.place.BeaconsConfigPlace;
 import com.heva.ui.client.place.BeaconsPlace;
 import com.heva.ui.client.place.CampaignPlace;
 import com.heva.ui.client.place.DashBoardPlace;
+import com.heva.ui.client.place.EditCampaignPlace;
 import com.heva.ui.client.place.NewCampaignPlace;
 import com.heva.ui.client.place.SignUpPlace;
 
@@ -25,7 +26,8 @@ import com.heva.ui.client.place.SignUpPlace;
                  CampaignPlace.Tokenizer.class,
                  BeaconsConfigPlace.Tokenizer.class,
                  BeaconsAnalyticsPlace.Tokenizer.class,
-                 NewCampaignPlace.Tokenizer.class
+                 NewCampaignPlace.Tokenizer.class,
+                 EditCampaignPlace.Tokenizer.class
                 })
 
 public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {

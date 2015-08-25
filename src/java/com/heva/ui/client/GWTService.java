@@ -27,4 +27,7 @@ public interface GWTService extends RemoteService {
     
     public List<Campaign> getCampaigns();
     
+    
+    public String signUp(String username, String email, String password);
+    
 }

@@ -7,6 +7,7 @@ import com.heva.ui.client.view.beacons.BeaconsAnalyticsView;
 import com.heva.ui.client.view.beacons.BeaconsConfigView;
 import com.heva.ui.client.view.beacons.BeaconsView;
 import com.heva.ui.client.view.campaign.CampaignView;
+import com.heva.ui.client.view.campaign.EditCampaignView;
 import com.heva.ui.client.view.campaign.NewCampaignView;
 import com.heva.ui.client.view.dashboard.DashBoardView;
 import com.heva.ui.client.view.signup.SignUpView;
@@ -37,5 +38,7 @@ public interface ClientFactory {
     public BeaconsAnalyticsView getBeaconsAnalyticsView();
 
     public NewCampaignView getNewCampaignView();
+
+    public EditCampaignView getEditCampaignView();
     
 }

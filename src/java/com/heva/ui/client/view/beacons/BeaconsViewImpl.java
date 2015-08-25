@@ -10,6 +10,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.dom.client.TableCellElement;
 import com.google.gwt.dom.client.TableElement;
 import com.google.gwt.dom.client.TableRowElement;
+import com.google.gwt.dom.client.TableSectionElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -43,16 +44,10 @@ public class BeaconsViewImpl extends MessagesPublisherImpl implements BeaconsVie
 
     @Override
     public void setBeacons(List<Beacon> beaconsList) {
-        int i = 1;
+        int i = 0;
+        TableSectionElement tbody = beaconsTable.getTBodies().getItem(0);
         for (final Beacon b : beaconsList) {
-            TableRowElement tr = beaconsTable.insertRow(i);
-
-            /*
-             TableCellElement tcCheck = tr.insertCell(0);
-             CheckBox ck = new CheckBox();
-             tcCheck.appendChild(ck.getElement());
-             */
-
+            TableRowElement tr = tbody.insertRow(i);
             TableCellElement tcName = tr.insertCell(0);
             Label lName = new Label(b.getName());
             tcName.appendChild(lName.getElement());

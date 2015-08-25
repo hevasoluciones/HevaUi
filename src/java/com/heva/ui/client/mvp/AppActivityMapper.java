@@ -11,6 +11,7 @@ import com.heva.ui.client.activity.BeaconsActivity;
 import com.heva.ui.client.activity.BeaconsConfigActivity;
 import com.heva.ui.client.activity.CampaignActivity;
 import com.heva.ui.client.activity.DashBoardActivity;
+import com.heva.ui.client.activity.EditCampaignActivity;
 import com.heva.ui.client.activity.NewCampaignActivity;
 import com.heva.ui.client.activity.SignUpActivity;
 import com.heva.ui.client.place.BeaconsAnalyticsPlace;
@@ -18,6 +19,7 @@ import com.heva.ui.client.place.BeaconsConfigPlace;
 import com.heva.ui.client.place.BeaconsPlace;
 import com.heva.ui.client.place.CampaignPlace;
 import com.heva.ui.client.place.DashBoardPlace;
+import com.heva.ui.client.place.EditCampaignPlace;
 import com.heva.ui.client.place.NewCampaignPlace;
 import com.heva.ui.client.place.SignUpPlace;
 
@@ -60,6 +62,8 @@ public class AppActivityMapper implements ActivityMapper {
             return new BeaconAnalyticsActivity((BeaconsAnalyticsPlace) place, clientFactory);
         } else if (place instanceof NewCampaignPlace) {
             return new NewCampaignActivity((NewCampaignPlace) place, clientFactory);
+        } else if (place instanceof EditCampaignPlace) {
+            return new EditCampaignActivity((EditCampaignPlace) place, clientFactory);
         }        
         return null;
     }

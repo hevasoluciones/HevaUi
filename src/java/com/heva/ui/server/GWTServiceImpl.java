@@ -146,12 +146,21 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         List<Campaign> clist = new ArrayList<Campaign>();
         Campaign c = new Campaign();
         c.setId(67);
-        c.setTitle("some title");
+        c.setTitle("Some title");
+        c.getTags().add("short");
+        c.setContent("blah blah blah ah blah blah blah blah ");
         clist.add(c);
         c = new Campaign();
         c.setId(66);
-        c.setTitle("some title1");
+        c.setTitle("Title2");
+        c.getTags().add("jean");
+        c.setContent("blah blah blah  blah blah blah ");
         clist.add(c);
         return clist;
+    }
+    
+    @Override
+    public String signUp(String username, String email, String password) {
+        return "2";
     }
 }

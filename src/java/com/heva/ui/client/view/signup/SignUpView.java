@@ -13,15 +13,15 @@ import com.heva.ui.client.view.MessagesPublisher;
  * @author David
  */
 public interface SignUpView extends IsWidget, MessagesPublisher {
-    
+
     void setPresenter(Presenter listener);
 
     //public void someViewMetod();
-   
     public interface Presenter {
 
         void goTo(Place place);
-        
+
         //public void someBussinesMetod();
+        public void signUp(String username, String email, String pwd1);
     }
 }
