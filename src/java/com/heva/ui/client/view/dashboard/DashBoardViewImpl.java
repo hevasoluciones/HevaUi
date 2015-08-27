@@ -41,7 +41,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class DashBoardViewImpl extends MessagesPublisherImpl implements DashBoardView {
 

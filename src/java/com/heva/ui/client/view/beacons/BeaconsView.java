@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface BeaconsView extends IsWidget, MessagesPublisher {
     

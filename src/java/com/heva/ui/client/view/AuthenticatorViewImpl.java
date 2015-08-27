@@ -24,7 +24,7 @@ import com.heva.ui.client.place.SignUpPlace;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class AuthenticatorViewImpl extends MessagesPublisherImpl implements AuthenticatorView {
 

@@ -25,7 +25,7 @@ import com.heva.ui.shared.User;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class EditCampaignViewImpl extends MessagesPublisherImpl implements EditCampaignView {
     
@@ -119,6 +119,17 @@ public class EditCampaignViewImpl extends MessagesPublisherImpl implements EditC
         Element campaignView = DOM.getElementById("campaignView");
         Event.sinkEvents(campaignView, Event.ONCLICK);
         Event.setEventListener(campaignView, new EventListener() {
+            @Override
+            public void onBrowserEvent(Event event) {
+                if (Event.ONCLICK == event.getTypeInt()) {
+                    listener.goTo(new CampaignPlace(""));
+                }
+            }
+        });
+        
+        Element campaign = DOM.getElementById("campaign");
+        Event.sinkEvents(campaign, Event.ONCLICK);
+        Event.setEventListener(campaign, new EventListener() {
             @Override
             public void onBrowserEvent(Event event) {
                 if (Event.ONCLICK == event.getTypeInt()) {

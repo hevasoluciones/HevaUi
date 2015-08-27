@@ -122,5 +122,16 @@ public class BeaconsAnalyticsViewImpl extends MessagesPublisherImpl implements B
                 }
             }
         });
+        
+       Element beacon = DOM.getElementById("beacon");
+        Event.sinkEvents(beacon, Event.ONCLICK);
+        Event.setEventListener(beacon, new EventListener() {
+            @Override
+            public void onBrowserEvent(Event event) {
+                if (Event.ONCLICK == event.getTypeInt()) {
+                    listener.goTo(new BeaconsPlace(""));
+                }
+            }
+        });
     }
 }

@@ -21,7 +21,7 @@ import com.heva.ui.client.view.MessagesPublisherImpl;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class SignUpViewImpl extends MessagesPublisherImpl implements SignUpView {
 

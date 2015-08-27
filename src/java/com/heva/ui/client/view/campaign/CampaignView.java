@@ -7,11 +7,13 @@ package com.heva.ui.client.view.campaign;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.heva.ui.client.view.MessagesPublisher;
+import com.heva.ui.shared.Campaign;
 import com.heva.ui.shared.User;
+import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface CampaignView extends IsWidget, MessagesPublisher {
     
@@ -21,12 +23,14 @@ public interface CampaignView extends IsWidget, MessagesPublisher {
     
     public void sinkEvents();
 
+    public void setCampaignList(List<Campaign> result);
+
     //public void someViewMetod();
    
     public interface Presenter {
 
         void goTo(Place place);
         
-        //public void someBussinesMetod();
+        void getCampaignList();
     }
 }

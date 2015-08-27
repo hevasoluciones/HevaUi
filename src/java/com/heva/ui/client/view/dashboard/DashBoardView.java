@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface DashBoardView  extends IsWidget, MessagesPublisher {
     

@@ -11,7 +11,7 @@ import com.heva.ui.shared.User;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface EditCampaignView  extends IsWidget, MessagesPublisher {
     

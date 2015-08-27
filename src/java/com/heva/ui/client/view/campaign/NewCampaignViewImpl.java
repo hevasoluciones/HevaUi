@@ -120,5 +120,16 @@ public class NewCampaignViewImpl extends MessagesPublisherImpl implements NewCam
                 }
             }
         });
+        
+        Element campaign = DOM.getElementById("campaign");
+        Event.sinkEvents(campaign, Event.ONCLICK);
+        Event.setEventListener(campaign, new EventListener() {
+            @Override
+            public void onBrowserEvent(Event event) {
+                if (Event.ONCLICK == event.getTypeInt()) {
+                    listener.goTo(new CampaignPlace(""));
+                }
+            }
+        });
     }
 }

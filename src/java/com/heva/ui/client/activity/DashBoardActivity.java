@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class DashBoardActivity extends AbstractActivity implements
         DashBoardView.Presenter {

@@ -88,7 +88,7 @@ Uncomment this for XHTML entities
                     <div class="page-head">
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Home</a>
+                                <a style="cursor:pointer; cursor: hand" id="home">Home</a>
                             </li>
 			  
                             <li class="active">Beacons</li>

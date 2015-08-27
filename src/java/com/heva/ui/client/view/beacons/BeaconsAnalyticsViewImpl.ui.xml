@@ -94,7 +94,7 @@ Uncomment this for XHTML entities
                     <div class="page-head">
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Beacons</a>
+                                <a style="cursor:pointer; cursor: hand" id="beacon">Beacon</a>
                             </li>
                             <li class="active">Analytics</li>
                         </ol>

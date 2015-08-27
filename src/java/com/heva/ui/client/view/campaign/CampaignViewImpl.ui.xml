@@ -93,10 +93,10 @@ Uncomment this for XHTML entities
                     <div class="page-head">
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Home</a>
+                                <a style="cursor:pointer; cursor: hand" id="home">Home</a>
                             </li>
 			  
-                            <li class="active">Beacons</li>
+                            <li class="active">Campaign Management</li>
                         </ol>
                     </div>	
 			
@@ -111,7 +111,7 @@ Uncomment this for XHTML entities
 						
                                 <div class="content">
                                     <div class="table-responsive">
-                                        <table class="table no-border hover">
+                                        <table class="table no-border hover" ui:field="campaignTable">
                                             <thead class="no-border">
                                                 <tr>
                                                     <!--
@@ -135,43 +135,7 @@ Uncomment this for XHTML entities
                                                 </tr>
                                             </thead>
                                             <tbody class="no-border-y">
-                                                <tr>
-                                                    <!--
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    -->
-                                                    <td>Campaign #1</td>
-                                                    <td class="text-right color-success"> jean</td>
-                                                    <td>16/07/2015</td>										
-                                                    <td class="text-center">
-                                                        <a class="label label-default" href="campaing_config.html">
-                                                            <i class="fa fa-cogs"></i>
-                                                        </a> 
-                                                        <a class="label label-danger" href="beacons_analytics.html">
-                                                            <i class="fa fa-times"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <!--
-                                                    <td>
-                                                        <input type="checkbox" />
-                                                    </td>
-                                                    -->
-                                                    <td>Campaign #1</td>
-                                                    <td class="text-right color-success"> jean</td>
-                                                    <td>16/07/2015</td>
-										
-                                                    <td class="text-center">
-                                                        <a class="label label-default" href="campaing_config.html">
-                                                            <i class="fa fa-cogs"></i>
-                                                        </a> 
-                                                        <a class="label label-danger" href="beacons_analytics.html">
-                                                            <i class="fa fa-times"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>			
+                                                			
                                             </tbody>
                                         </table>		
                                     </div>

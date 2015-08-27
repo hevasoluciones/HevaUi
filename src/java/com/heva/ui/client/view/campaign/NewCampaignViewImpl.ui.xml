@@ -91,7 +91,7 @@ Uncomment this for XHTML entities
                     <div class="page-head">
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Campaign Management</a>
+                                <a style="cursor:pointer; cursor: hand" id="campaign">Campaign Management</a>
                             </li>
 
                             <li class="active">New Campaign</li>

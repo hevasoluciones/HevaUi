@@ -34,7 +34,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class BeaconsViewImpl extends MessagesPublisherImpl implements BeaconsView {
 
@@ -150,6 +150,17 @@ public class BeaconsViewImpl extends MessagesPublisherImpl implements BeaconsVie
                 }
             }
         });
+                
+        Element home = DOM.getElementById("home");
+        Event.sinkEvents(home, Event.ONCLICK);
+        Event.setEventListener(home, new EventListener() {
+            @Override
+            public void onBrowserEvent(Event event) {
+                if (Event.ONCLICK == event.getTypeInt()) {
+                    listener.goTo(new DashBoardPlace(""));
+                }
+            }
+        });        
     }
 
     interface BeaconsViewImplUiBinder extends UiBinder<Widget, BeaconsViewImpl> {

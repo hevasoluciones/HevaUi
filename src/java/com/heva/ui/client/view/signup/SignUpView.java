@@ -10,7 +10,7 @@ import com.heva.ui.client.view.MessagesPublisher;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface SignUpView extends IsWidget, MessagesPublisher {
 

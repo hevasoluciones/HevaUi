@@ -147,14 +147,16 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         Campaign c = new Campaign();
         c.setId(67);
         c.setTitle("Some title");
-        c.getTags().add("short");
+        c.getTags().add("short");        
         c.setContent("blah blah blah ah blah blah blah blah ");
+        c.setDate("16/07/2015");
         clist.add(c);
         c = new Campaign();
         c.setId(66);
         c.setTitle("Title2");
         c.getTags().add("jean");
         c.setContent("blah blah blah  blah blah blah ");
+        c.setDate("16/07/2015");
         clist.add(c);
         return clist;
     }

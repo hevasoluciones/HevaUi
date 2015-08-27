@@ -9,7 +9,7 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class SignUpPlace extends Place {
 	

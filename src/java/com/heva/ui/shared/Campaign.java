@@ -21,6 +21,7 @@ public class Campaign implements IsSerializable {
     private String featuredImage;
     public List<Beacon> beacons = new ArrayList<Beacon>();
     public List<String> tags = new ArrayList<String>();
+    private String date;
 
     public Campaign() {
     }
@@ -71,5 +72,13 @@ public class Campaign implements IsSerializable {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

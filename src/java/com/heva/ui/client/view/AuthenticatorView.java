@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.IsWidget;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public interface AuthenticatorView extends IsWidget, MessagesPublisher {
 

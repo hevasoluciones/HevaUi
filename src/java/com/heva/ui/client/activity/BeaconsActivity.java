@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author David
+ * @author Yasmani
  */
 public class BeaconsActivity extends AbstractActivity implements
         BeaconsView.Presenter {
