@@ -3,11 +3,15 @@ Uncomment this for XHTML entities
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:p="urn:import:ca.nanometrics.gflot.client">
     <ui:style>
-        	
+        .hoverPoint {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
     </ui:style>
-    
+       
     <g:HTMLPanel>
         <body class="animated">
             <div id="cl-wrapper">
@@ -147,8 +151,15 @@ Uncomment this for XHTML entities
                                         <h3>Visitors</h3>
                                     </div>
                                     <div class="content full-width">
+                                        <!--
                                         <div id="chart3-legend" class="legend-container"></div>
                                         <div id="chart3" style="height: 180px;"></div>
+                                        -->
+                                        <p:SimplePlot ui:field="plot" width="600px" height="300px" />
+
+                                        <g:Label ui:field="hoverPoint" addStyleNames='{style.hoverPoint}' />
+
+                                        <g:Label ui:field="cursorPosition" />
                                         <div class="counter-detail">
                                             <div class="counter">
                                                 <div class="spk1"></div>

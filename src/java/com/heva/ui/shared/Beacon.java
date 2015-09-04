@@ -22,6 +22,7 @@ public class Beacon implements IsSerializable {
     private int major;
     private int minor;
     private String secureUUID;
+    private int status; // 0 = Off, 1 =  On, 2 = Alert
 
     public String getName() {
         return name;
@@ -85,6 +86,14 @@ public class Beacon implements IsSerializable {
 
     public void setSecureUUID(String secureUUID) {
         this.secureUUID = secureUUID;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
     
 }

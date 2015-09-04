@@ -9,6 +9,8 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.regexp.shared.MatchResult;
+import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -69,11 +71,15 @@ public class SignUpViewImpl extends MessagesPublisherImpl implements SignUpView 
             spanun.setAttribute("class", "input-group-addon");
             iusername.setAttribute("class", "form-control");
         }
-        
+
         Element iemail = DOM.getElementById("email");
         String email = iemail.getPropertyString("value");
-        Element spanemail = DOM.getElementById("spanemail");        
-        if (!email.isEmpty()) {//validar email
+        Element spanemail = DOM.getElementById("spanemail");
+        String patternStr = ".+@.+\\.[a-z]+";
+        RegExp regExp = RegExp.compile(patternStr);
+        MatchResult matcher = regExp.exec(email);
+        boolean matchFound = (matcher != null);
+        if (matchFound) {//validar email
             spanemail.setAttribute("class", "input-group-addon");
             iemail.setAttribute("class", "form-control");
         } else {
@@ -81,8 +87,8 @@ public class SignUpViewImpl extends MessagesPublisherImpl implements SignUpView 
             spanemail.setAttribute("class", "input-group-addon  parsley-error");
             iemail.setAttribute("class", "form-control  parsley-error");
             showMessage("Error", "You must enter a correct email!", "error");
-        }                
-                
+        }
+
         Element pass1 = DOM.getElementById("pass1");
         String pwd1 = pass1.getPropertyString("value");
         Element pass2 = DOM.getElementById("pass2");

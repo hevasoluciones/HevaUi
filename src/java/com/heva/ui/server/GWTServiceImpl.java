@@ -53,6 +53,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         b.setMajor(32547);
         b.setMinor(14454);
         b.setSecureUUID(null);
+        b.setStatus(1);
 
         blist.add(b);
 
@@ -67,6 +68,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         b.setMajor(32547);
         b.setMinor(14454);
         b.setSecureUUID(null);
+        b.setStatus(0);
 
         blist.add(b);
 
@@ -81,6 +83,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         b.setMajor(32547);
         b.setMinor(14454);
         b.setSecureUUID(null);
+         b.setStatus(1);
 
         blist.add(b);
 
@@ -95,6 +98,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         b.setMajor(32547);
         b.setMinor(14454);
         b.setSecureUUID(null);
+         b.setStatus(2);
 
         blist.add(b);
 
@@ -109,8 +113,40 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         b.setMajor(32547);
         b.setMinor(14454);
         b.setSecureUUID(null);
+        b.setStatus(0);
 
         blist.add(b);
+        
+         b = new Beacon();
+        b.setName("Beacon 6");
+        b.getTags().add("bags");
+        b.getTags().add("short");
+        b.getTags().add("shoes");
+        b.setProximityUUID("B9407F30-F5F8-466E-AFF9-25556B57FE6D");
+        b.setBeaconColor("Blueberry Pie");
+        b.setMacAddress("C5:3B:38:76:7F:23");
+        b.setMajor(32547);
+        b.setMinor(14454);
+        b.setSecureUUID(null);
+        b.setStatus(1);
+
+        blist.add(b);
+        
+         b = new Beacon();
+        b.setName("Beacon 7");
+        b.getTags().add("bags");
+        b.getTags().add("short");
+        b.getTags().add("shoes");
+        b.setProximityUUID("B9407F30-F5F8-466E-AFF9-25556B57FE6D");
+        b.setBeaconColor("Blueberry Pie");
+        b.setMacAddress("C5:3B:38:76:7F:23");
+        b.setMajor(32547);
+        b.setMinor(14454);
+        b.setSecureUUID(null);
+        b.setStatus(1);
+
+        blist.add(b);
+        
         return blist;
     }
 
@@ -147,7 +183,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         Campaign c = new Campaign();
         c.setId(67);
         c.setTitle("Some title");
-        c.getTags().add("short");        
+        c.getTags().add("short");
         c.setContent("blah blah blah ah blah blah blah blah ");
         c.setDate("16/07/2015");
         clist.add(c);
@@ -160,7 +196,7 @@ public class GWTServiceImpl extends RemoteServiceServlet implements GWTService {
         clist.add(c);
         return clist;
     }
-    
+
     @Override
     public String signUp(String username, String email, String password) {
         return "2";

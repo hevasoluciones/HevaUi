@@ -26,4 +26,5 @@ public interface GWTServiceAsync {
     public void getCampaigns(AsyncCallback<List<Campaign>> callback);    
     
     public void signUp(String username, String email, String password, AsyncCallback<String> callback);
+    
 }

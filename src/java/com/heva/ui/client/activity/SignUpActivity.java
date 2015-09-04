@@ -13,6 +13,7 @@ import com.heva.ui.client.ClientFactory;
 import com.heva.ui.client.place.AuthenticatorPlace;
 import com.heva.ui.client.place.DashBoardPlace;
 import com.heva.ui.client.place.SignUpPlace;
+import com.heva.ui.client.view.AuthenticatorView;
 import com.heva.ui.client.view.signup.SignUpView;
 import com.heva.ui.shared.User;
 
@@ -59,6 +60,7 @@ public class SignUpActivity extends AbstractActivity implements
     @Override
     public void signUp(String username, String email, String password) {
         final SignUpView signUpView = clientFactory.getSignUpView();
+        final AuthenticatorView authenticatorView = clientFactory.getAuthenticatorView();
         clientFactory.getRpcService().signUp(username, email, password, new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable caught) {
@@ -68,6 +70,7 @@ public class SignUpActivity extends AbstractActivity implements
             @Override
             public void onSuccess(String id) {
                 goTo(new AuthenticatorPlace(""));
+                authenticatorView.showMessage("Success", "The Sign Up was successfully maded", "error");
             }
         });
     }

@@ -5,6 +5,8 @@
 <module>
     <inherits name="com.google.gwt.user.User"/>
     
+    <inherits name='ca.nanometrics.gflot.GFlot' />
+    
     <inherits name='com.sencha.gxt.ui.GXT' />
     <inherits name="com.sencha.gwt.uibinder.UiBinder" />
 
