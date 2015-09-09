@@ -4,22 +4,6 @@
  */
 package com.heva.ui.client.view.dashboard;
 
-import ca.nanometrics.gflot.client.Axis;
-import ca.nanometrics.gflot.client.DataPoint;
-import ca.nanometrics.gflot.client.PlotModel;
-import ca.nanometrics.gflot.client.SeriesHandler;
-import ca.nanometrics.gflot.client.SimplePlot;
-import ca.nanometrics.gflot.client.event.PlotHoverListener;
-import ca.nanometrics.gflot.client.event.PlotItem;
-import ca.nanometrics.gflot.client.event.PlotPosition;
-import ca.nanometrics.gflot.client.jsni.Plot;
-import ca.nanometrics.gflot.client.options.AxisOptions;
-import ca.nanometrics.gflot.client.options.GlobalSeriesOptions;
-import ca.nanometrics.gflot.client.options.GridOptions;
-import ca.nanometrics.gflot.client.options.LineSeriesOptions;
-import ca.nanometrics.gflot.client.options.PlotOptions;
-import ca.nanometrics.gflot.client.options.PointsSeriesOptions;
-import ca.nanometrics.gflot.client.options.TickFormatter;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
@@ -38,18 +22,14 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.EventListener;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.heva.ui.client.place.BeaconsAnalyticsPlace;
-import com.heva.ui.client.place.BeaconsConfigPlace;
 import com.heva.ui.client.place.BeaconsPlace;
 import com.heva.ui.client.place.CampaignPlace;
 import com.heva.ui.client.place.DashBoardPlace;
 import com.heva.ui.client.place.EditCampaignPlace;
 import com.heva.ui.client.view.MessagesPublisherImpl;
-import com.heva.ui.client.view.campaign.EditCampaignView;
+import com.heva.ui.client.view.graph.DashBoardGraph;
 import com.heva.ui.shared.Beacon;
 import com.heva.ui.shared.Campaign;
 import com.heva.ui.shared.User;
@@ -62,6 +42,17 @@ import java.util.List;
  */
 public class DashBoardViewImpl extends MessagesPublisherImpl implements DashBoardView {
 
+    /**
+     * Month names used by the tick formatter
+     */
+    private static final String[] MONTH_NAMES = {"jan", "feb", "mar", "apr",
+        "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec", ""};
+    private static final String[] DAY_NAMES = {"sun", "mon", "tue", "wed",
+        "thu", "fri", "sat", ""};
+    private static final String[] HOUR_NAMES = {"00", "01", "02", "03", "04",
+        "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
+        "16", "17", "18", "19", "20", "21", "22", "23", ""};
+    
     private static DashBoardViewImplUiBinder uiBinder = GWT.create(DashBoardViewImplUiBinder.class);
     @UiField
     SpanElement spanName;
@@ -173,89 +164,32 @@ public class DashBoardViewImpl extends MessagesPublisherImpl implements DashBoar
     }
 
     @Override
-    public void setVisitors(List<Visits> visitList) {
-        Element nv = DOM.getElementById("newVisitors");
-        nv.setInnerText(String.valueOf(visitList.size()));
-        Element nvg = DOM.getElementById("newvg");
-        nvg.setInnerText(String.valueOf(visitList.size()));
-        Element ovg = DOM.getElementById("oldvg");
-        ovg.setInnerText(String.valueOf(visitList.size() + 10));
-
-        /*
-        //Genero grafico con datos
-        PlotModel model = new PlotModel();
-        PlotOptions plotOptions = new PlotOptions();
-        plotOptions.setGlobalSeriesOptions(new GlobalSeriesOptions()
-                .setLineSeriesOptions(new LineSeriesOptions().setLineWidth(1).setShow(true))
-                .setPointsOptions(new PointsSeriesOptions().setRadius(2).setShow(true)).setShadowSize(0d));
-        // add tick formatter to the options
-       
-        plotOptions.addXAxisOptions(new AxisOptions().setTicks(12).setTickFormatter(new TickFormatter() {
-            public String formatTickValue(double tickValue, Axis axis) {
-                return MONTH_NAMES[(int) (tickValue - 1)];
-            }
-        }));
-        
-        // >>>>>>> You need make the grid hoverable <<<<<<<<<
-        plotOptions.setGridOptions(new GridOptions().setHoverable(true));
-        // >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-        // create a series
-        SeriesHandler handler = model.addSeries("Ottawa's Month Temperatures (Daily Average in °C)", "#007f00");
-
-        // add data
-        handler.add(new DataPoint(1, -10.5));
-        handler.add(new DataPoint(2, -8.6));
-        handler.add(new DataPoint(3, -2.4));
-        handler.add(new DataPoint(4, 6));
-        handler.add(new DataPoint(5, 13.6));
-        handler.add(new DataPoint(6, 18.4));
-        handler.add(new DataPoint(7, 21));
-        handler.add(new DataPoint(8, 19.7));
-        handler.add(new DataPoint(9, 14.7));
-        handler.add(new DataPoint(10, 8.2));
-        handler.add(new DataPoint(11, 1.5));
-        handler.add(new DataPoint(12, -6.6));
-
-        // create the plot
-        plot = new SimplePlot(model, plotOptions);
-
-        final PopupPanel popup = new PopupPanel();
-        final Label label = new Label();
-        popup.add(label);
-
-        // add hover listener
-        plot.addHoverListener(new PlotHoverListener() {
-            public void onPlotHover(Plot plot, PlotPosition position, PlotItem item) {
-                if (position != null) {
-                    cursorPosition.setText("Position : {x=" + position.getX() + ", y=" + position.getY() + "}");
-                }
-                if (item != null) {
-                    String text = "x: " + item.getDataPoint().getX() + ", y: " + item.getDataPoint().getY();
-
-                    hoverPoint.setText(text);
-
-                    label.setText(text);
-                    popup.setPopupPosition(item.getPageX() + 10, item.getPageY() - 25);
-                    popup.show();
-                } else {
-                    hoverPoint.setText("Something to say");
-                    popup.hide();
-                }
-            }
-        }, false);
-        */ 
+    public void setVisitors(List<Visits> visitList) {        
+        long countTotal = 0, countback = 0, countfore = 0; 
+        for (Visits v : visitList) {
+            countTotal = countTotal + v.getTotal_visits();
+            countback = countback + v.getApp_in_background_visits();
+            countfore = countfore + v.getApp_in_foreground_visits();
+        }
+        //Element totalvg = DOM.getElementById("totalvg");
+        //totalvg.setInnerText(String.valueOf(countTotal));
+        Element backvg = DOM.getElementById("backvg");
+        backvg.setInnerText(String.valueOf(countback)); 
+        Element forevg = DOM.getElementById("forevg");
+        forevg.setInnerText(String.valueOf(countfore)); 
+        generaGraph(visitList);
     }
-    
-    @UiField(provided = true)
-    SimplePlot plot;
-
+        
     @UiField
-    Label hoverPoint;
-    
-    @UiField
-    Label cursorPosition;
-            
+    HTMLPanel hp;
+       
+    private void generaGraph(List<Visits> visitList){
+        DashBoardGraph dg = new DashBoardGraph();
+        hp.setStyleName("whiteTheme");
+        hp.add(dg.createPlot(visitList));
+        //dg.redraw();
+    }
+                    
     interface DashBoardViewImplUiBinder extends UiBinder<Widget, DashBoardViewImpl> {
     }
     Presenter listener;
@@ -272,8 +206,8 @@ public class DashBoardViewImpl extends MessagesPublisherImpl implements DashBoar
 
     @Override
     public Widget asWidget() {
-        Widget widget = uiBinder.createAndBindUi(this);
-        init();
+        Widget widget = uiBinder.createAndBindUi(this);        
+        init();        
         return widget;
     }
     @UiField
@@ -283,7 +217,7 @@ public class DashBoardViewImpl extends MessagesPublisherImpl implements DashBoar
 
     private void init() {
         sidebar_collapse.setStyleName("btn btn-default");
-        sidebar_collapseIcon.setAttribute("class", "fa fa-angle-left");
+        sidebar_collapseIcon.setAttribute("class", "fa fa-angle-left");               
     }
 
     @UiHandler("sidebar_collapse")

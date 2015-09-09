@@ -10,3 +10,19 @@
     cursor:pointer; 
     cursor: hand;
 }
+
+.labelHover {
+    background-color : black;
+    color: white;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.whiteTheme {
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+}
+

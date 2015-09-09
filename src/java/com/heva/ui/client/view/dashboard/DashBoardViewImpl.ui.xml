@@ -7,8 +7,8 @@ Uncomment this for XHTML entities
              xmlns:p="urn:import:ca.nanometrics.gflot.client">
     <ui:style>
         .hoverPoint {
-            margin-top: 10px;
-            margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 5px;
         }
     </ui:style>
        
@@ -155,22 +155,21 @@ Uncomment this for XHTML entities
                                         <div id="chart3-legend" class="legend-container"></div>
                                         <div id="chart3" style="height: 180px;"></div>
                                         -->
-                                        <p:SimplePlot ui:field="plot" width="600px" height="300px" />
-
-                                        <g:Label ui:field="hoverPoint" addStyleNames='{style.hoverPoint}' />
-
-                                        <g:Label ui:field="cursorPosition" />
+                                        <!--  -->
+                                        <g:HTMLPanel ui:field="hp">                                            
+                                                                                                                                        
+                                        </g:HTMLPanel>
                                         <div class="counter-detail">
                                             <div class="counter">
                                                 <div class="spk1"></div>
-                                                <p>New Visitors</p>
-                                                <h5 id="newvg"></h5>
+                                                <p>Foreground Visits</p>
+                                                <h5 id="forevg"></h5>
                                             </div>
                                             <div class="counter">
                                                 <div class="spk2"></div>
-                                                <p>Old Visitors</p>
-                                                <h5 id="oldvg"></h5>
-                                            </div>
+                                                <p>Background Visits</p>
+                                                <h5 id="backvg"></h5>                                                
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>

@@ -15,9 +15,7 @@ import com.heva.ui.client.place.DashBoardPlace;
 import com.heva.ui.client.view.dashboard.DashBoardView;
 import com.heva.ui.shared.Beacon;
 import com.heva.ui.shared.Campaign;
-import com.heva.ui.shared.User;
 import com.heva.ui.shared.Visits;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -71,7 +69,7 @@ public class DashBoardActivity extends AbstractActivity implements
         clientFactory.getRpcService().getVisitors(new AsyncCallback<List<Visits>>() {
             @Override
             public void onFailure(Throwable caught) {
-                clientFactory.getAuthenticatorView().showMessage("Error", "Error getting the visit list", "error");
+                dashBoardView.showMessage("Error", "Error getting the visit list", "error");
             }
 
             @Override
